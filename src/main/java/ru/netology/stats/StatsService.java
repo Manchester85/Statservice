@@ -1,5 +1,7 @@
 package ru.netology.stats;
 
+import static java.lang.Long.sum;
+
 public class StatsService {
 
     public long calcSum(long[] sales) {
@@ -12,15 +14,17 @@ public class StatsService {
 
     public long calculateAverage(long[] sales) {
         long sum = 0;
+        int averageSales = 0;
         for (long sale : sales) {
             sum += sale;
+            averageSales = (int) (sum / sales.length);
         }
-        return sum / sales.length;
+        return averageSales;
     }
 
     public int findMax(long[] sales) {
         int currentMax = 0;
-        int month = 0;
+        int month = 2;
         for (long sale : sales) {
             if (sale > sales[currentMax]) {
                 currentMax = month;
@@ -46,13 +50,13 @@ public class StatsService {
         int monthQuantity = 0;
         int averageSales = 15;
         for (long sale : sales) {
-            if (sale <= averageSales) {
+            if (sale < averageSales) {
                 monthQuantity = monthQuantity + 1;
             }
             averageSales = averageSales;
         }
-            return monthQuantity;
-        }
+        return monthQuantity;
+    }
 
     public int calculateMonthsSalesAboveAverage(long[] sales) {
         int monthQuantity = 0;
@@ -66,6 +70,7 @@ public class StatsService {
         return monthQuantity;
     }
 }
+
 
 
 
