@@ -34,7 +34,7 @@ class StatsServiceTest {
         StatsService service = new StatsService();
 
         long[] sales = {8, 15, 13, 15, 17, 20, 19, 20, 7, 14, 14, 18};
-        long expected = 8;
+        int expected = 8;
 
         long actual = service.findMax(sales);
 
@@ -46,7 +46,7 @@ class StatsServiceTest {
         StatsService service = new StatsService();
 
         long[] sales = {8, 15, 13, 15, 17, 20, 19, 20, 7, 14, 14, 18};
-        long expected = 9;
+        int expected = 9;
 
         long actual = service.minSales(sales);
 
@@ -58,7 +58,7 @@ class StatsServiceTest {
         StatsService service = new StatsService();
 
         long[] sales = {8, 15, 13, 15, 17, 20, 19, 20, 7, 14, 14, 18};
-        long expected = 5;
+        int expected = 5;
 
         long actual = service.calculateMonthsSalesBelowAverage(sales);
 
@@ -70,9 +70,9 @@ class StatsServiceTest {
         StatsService service = new StatsService();
 
         long[] sales = {8, 15, 13, 15, 17, 20, 19, 20, 7, 14, 14, 18};
-        long expected = 5;
+        int expected = 5;
 
-        long actual = service.calculateMonthsSalesBelowAverage(sales);
+        long actual = service.calculateMonthsSalesAboveAverage(sales);
 
         assertEquals(expected, actual);
     }

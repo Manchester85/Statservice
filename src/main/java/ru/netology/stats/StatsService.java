@@ -18,11 +18,11 @@ public class StatsService {
     }
 
     public long findMax(long[] sales) {
-        long currentMax = 0;
-        long month = 0;
+        int currentMax = 0;
+        int month = 0;
         for (long sale : sales) {
-            if (sale > sales[(int) currentMax]) {
-                currentMax = month + 2;
+            if (sale >= sales[currentMax]) {
+                currentMax = month;
             }
             month = month + 1;
         }
@@ -30,10 +30,10 @@ public class StatsService {
     }
 
     public long minSales(long[] sales) {
-        long minMonth = 0;
-        long month = 0;
+        int minMonth = 0;
+        int month = 0;
         for (long sale : sales) {
-            if (sale < sales[(int) minMonth]) {
+            if (sale <= sales[minMonth]) {
                 minMonth = month;
             }
             month = month + 1;
@@ -42,7 +42,7 @@ public class StatsService {
     }
 
     public long calculateMonthsSalesBelowAverage(long[] sales) {
-        long monthQuantity = 0;
+        int monthQuantity = 0;
         long averageSales = calculateAverage(sales);
         for (long sale : sales) {
             if (sale < averageSales) {
@@ -65,6 +65,7 @@ public class StatsService {
         return monthQuantity;
     }
 }
+
 
 
 
